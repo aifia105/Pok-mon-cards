@@ -10,7 +10,6 @@ A web application that allows users to explore and search Pokémon with their de
 - **Comprehensive Pokémon List**
  - View detailed stats (HP, Attack, Defense, Speed)
  - Clean and intuitive interface
- - Real-time data from PokeAPI via GraphQL
 
  ### **Advanced Search**
  - Search by Pokémon name
