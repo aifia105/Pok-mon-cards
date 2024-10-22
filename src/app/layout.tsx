@@ -5,7 +5,7 @@ import NavBarComponent from "@/components/navBarComponent";
 import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
-  title: "Pokemon Analytics",
+  title: "Pokemon Stats Explorer",
   description:
     "Your go-to hub for detailed Pokémon stats, offering a comprehensive look at every Pokémon’s strengths and abilities.",
   icons: "/icon.png",

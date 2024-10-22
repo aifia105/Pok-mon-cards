@@ -9,7 +9,22 @@ import {
 } from "@nextui-org/react";
 import ModalComponent from "./modalComponent";
 
-const CardComponent = ({ pokemon, index }: { pokemon: any; index: number }) => {
+type CardType = {
+  number: number;
+  name: string;
+  type: string;
+  hp: number;
+  attack: number;
+  img: string;
+};
+
+const CardComponent = ({
+  pokemon,
+  index,
+}: {
+  pokemon: CardType;
+  index: number;
+}) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 

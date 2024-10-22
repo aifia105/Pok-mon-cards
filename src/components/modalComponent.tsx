@@ -6,6 +6,7 @@ import {
   ModalFooter,
   ModalHeader,
 } from "@nextui-org/react";
+import { ArrowRight } from "lucide-react";
 import React, { Dispatch, SetStateAction } from "react";
 
 const ModalComponent = ({
@@ -46,18 +47,12 @@ const ModalComponent = ({
         </ModalBody>
         <ModalFooter>
           <Button
-            color="danger"
-            variant="light"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            Close
-          </Button>
-          <Button
-            color="primary"
+            color="warning"
             variant="bordered"
             onClick={() => setIsOpen(!isOpen)}
           >
-            Details
+            view Details
+            <ArrowRight />
           </Button>
         </ModalFooter>
       </ModalContent>
