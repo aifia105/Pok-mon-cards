@@ -9,9 +9,6 @@ const NavBarComponent = () => {
       <NavbarContent justify="start" className="w-full">
         <NavbarBrand>
           <Image src={"/logo.webp"} alt="" width={200} height={200}></Image>
-          {/* <p className="hidden text-2xl sm:block font-bold text-inherit">
-            Analytics
-          </p> */}
         </NavbarBrand>
         <div className="flex-grow flex justify-center">
           <div className="flex items-center justify-center w-full max-w-[500px]">
@@ -30,9 +27,7 @@ const NavBarComponent = () => {
             />
           </div>
         </div>
-        <div>
-          <ThemeSwitcher></ThemeSwitcher>
-        </div>
+        <ThemeSwitcher></ThemeSwitcher>
       </NavbarContent>
     </Navbar>
   );

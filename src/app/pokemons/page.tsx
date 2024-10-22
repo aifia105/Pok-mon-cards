@@ -1,9 +1,7 @@
-import { Button } from "@nextui-org/react";
+import React from "react";
 
-export default function Home() {
-  return (
-    <div>
-      <Button></Button>
-    </div>
-  );
-}
+const Pokemon = () => {
+  return <div>pokemon</div>;
+};
+
+export default Pokemon;
