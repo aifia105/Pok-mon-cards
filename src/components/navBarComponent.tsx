@@ -7,9 +7,9 @@ const NavBarComponent = () => {
   return (
     <Navbar isBordered>
       <NavbarContent justify="start" className="w-full">
-        <NavbarBrand>
+        <div className="flex items-center">
           <Image src={"/logo.webp"} alt="" width={200} height={200}></Image>
-        </NavbarBrand>
+        </div>
         <div className="flex-grow flex justify-center">
           <div className="flex items-center justify-center w-full max-w-[500px]">
             <Input

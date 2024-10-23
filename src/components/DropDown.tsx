@@ -10,7 +10,18 @@ import {
 import { ArrowDownWideNarrow, Filter } from "lucide-react";
 import React from "react";
 
-const DropDown = ({ name }: { name: string }) => {
+type dropDownListType = {
+  type: string;
+  icon: JSX.Element;
+}[];
+
+const DropDown = ({
+  name,
+  dropDownList,
+}: {
+  name: string;
+  dropDownList: dropDownListType;
+}) => {
   const [selectedKeys, setSelectedKeys] = React.useState<string[]>([]);
   const selectedValue =
     selectedKeys.length === 0 ? (
@@ -27,6 +38,7 @@ const DropDown = ({ name }: { name: string }) => {
     const selected = Array.from(keys);
     setSelectedKeys(selected as string[]);
   };
+
   return (
     <Dropdown>
       <DropdownTrigger>
@@ -41,11 +53,15 @@ const DropDown = ({ name }: { name: string }) => {
         selectedKeys={selectedKeys}
         onSelectionChange={handleSelectionChange}
       >
-        <DropdownItem key="text">Text</DropdownItem>
-        <DropdownItem key="number">Number</DropdownItem>
-        <DropdownItem key="date">Date</DropdownItem>
-        <DropdownItem key="single_date">Single Date</DropdownItem>
-        <DropdownItem key="iteration">Iteration</DropdownItem>
+        {dropDownList.map((item) => (
+          <DropdownItem
+            className="p-2"
+            key={item.type}
+            startContent={item.icon}
+          >
+            {item.type}
+          </DropdownItem>
+        ))}
       </DropdownMenu>
     </Dropdown>
   );
