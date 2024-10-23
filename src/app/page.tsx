@@ -1,9 +1,30 @@
+"use client";
 import CardComponent from "@/components/cardComponent";
 import DropDown from "@/components/DropDown";
 import PaginationComponent from "@/components/pagination";
+// import { GET_POKEMON } from "@/graphQL/queries";
 import { pokemonStatTypes, pokemonTypes } from "@/types/types";
+// import { useQuery } from "@apollo/client";
+// import Loading from "./pokemons/loading";
+// import ErrorComponent from "@/components/errorComponent";
 
 const Home = () => {
+  // const { loading, error, data, refetch } = useQuery(GET_POKEMON, {
+  //   variables: { limit: 20 },
+  //   notifyOnNetworkStatusChange: true,
+  //   //configure cache behavior
+  //   fetchPolicy: "cache-and-network",
+  // });
+
+  // if (loading && !data) return <Loading />;
+  // if (error) {
+  //   return <ErrorComponent refetch={refetch} />;
+  // }
+
+  // console.log(data);
+  // console.log(loading);
+  // console.log(error);
+
   const pokemonList = [
     {
       id: 1,
@@ -20,11 +41,11 @@ const Home = () => {
     },
   ];
   return (
-    <section className="xl:h-full pt-10 pb-12 xl:pb-24 xl:pt-16">
+    <section className="xl:h-full pt-10 pb-12 xl:pb-20 xl:pt-15">
       <div className="container mx-auto">
         <div className="mb-2">
           <h1 className="text-4xl font-bold text-center text-gray-800 dark:text-white">
-            Pokemon Stats Explorer
+            Pokémon Stats Explorer
           </h1>
           <p className="text-center text-gray-600 dark:text-white/60 mt-2">
             Your go-to hub for detailed Pokémon stats, offering a comprehensive

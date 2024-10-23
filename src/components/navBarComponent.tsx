@@ -14,15 +14,15 @@ const NavBarComponent = () => {
           <div className="flex items-center justify-center w-full max-w-[500px]">
             <Input
               classNames={{
-                base: "w-full h-12", // Increased width and height
+                base: "w-full h-12",
                 mainWrapper: "h-full",
-                input: "text-medium", // Adjusted text size
+                input: "text-medium",
                 inputWrapper:
                   "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
               }}
               placeholder="Type to search..."
-              size="lg" // Adjusted size
-              startContent={<Search size={20} />} // Adjusted icon size
+              size="lg"
+              startContent={<Search size={20} />}
               type="search"
             />
           </div>

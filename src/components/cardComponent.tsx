@@ -51,7 +51,7 @@ const CardComponent = ({
               <p className="text-xl text-gray-600 dark:text-white/60 uppercase font-bold">
                 {`${pokemon.id} -`}
               </p>
-              <h4 className="text-gray-800 dark:text-white font-bold text-xl">
+              <h4 className="text-amber-400 dark:text-white font-bold text-xl">
                 {pokemon.name}
               </h4>
             </div>
@@ -76,7 +76,7 @@ const CardComponent = ({
                   startContent={<FireExtinguisher size={20} />}
                   variant="flat"
                   color="warning"
-                  className="text-md p-1 cursor-default capitalize "
+                  className="text-md p-2 cursor-default capitalize "
                   size="lg"
                 >
                   {type.type.name}

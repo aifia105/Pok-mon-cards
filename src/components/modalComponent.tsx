@@ -35,8 +35,10 @@ const ModalComponent = ({
       onOpenChange={setIsOpen}
     >
       <ModalContent>
-        <ModalHeader className="gap-1 text-2xl text-center font-bold flex justify-center mt-2">
-          <p className="text-amber-400">{`${pokemonData?.id} - ${pokemonData?.name}`}</p>{" "}
+        <ModalHeader className="gap-1 text-2xl text-center font-bold flex justify-center mt-2 space-x-1">
+          <p className="text-gray-600 dark:text-white/60">{pokemonData?.id}</p>
+          <p>-</p>
+          <p className="text-amber-400 dark:text-white">{pokemonData?.name}</p>
         </ModalHeader>
         <ModalBody>
           <div className="relative w-full h-full flex justify-center items-center group mt-4">
@@ -71,12 +73,12 @@ const ModalComponent = ({
         </ModalBody>
         <ModalFooter>
           <Button
-            className="w-full"
+            className="w-full flex items-center justify-center"
             color="warning"
             variant="bordered"
             onClick={() => setIsOpen(!isOpen)}
           >
-            View Details
+            <p className="text-md font-medium mb-1">View Details</p>
             <ArrowRight />
           </Button>
         </ModalFooter>

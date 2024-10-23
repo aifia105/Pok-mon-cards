@@ -40,9 +40,9 @@ const DropDown = ({
   };
 
   return (
-    <Dropdown>
+    <Dropdown shouldBlockScroll={false}>
       <DropdownTrigger>
-        <Button color="warning" variant="flat">
+        <Button color="warning" className="font-medium text-md" variant="flat">
           {selectedValue}
         </Button>
       </DropdownTrigger>
@@ -55,7 +55,7 @@ const DropDown = ({
       >
         {dropDownList.map((item) => (
           <DropdownItem
-            className="p-2"
+            className="p-2 font-medium"
             key={item.type}
             startContent={item.icon}
           >
