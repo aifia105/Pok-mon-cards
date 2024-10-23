@@ -7,7 +7,6 @@ import {
   Bug,
   Earth,
   Eclipse,
-  Filter,
   Flame,
   Ghost,
   Heart,

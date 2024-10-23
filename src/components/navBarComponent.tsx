@@ -1,4 +1,4 @@
-import { Navbar, NavbarContent, NavbarBrand, Input } from "@nextui-org/react";
+import { Navbar, NavbarContent, Input } from "@nextui-org/react";
 import { Search } from "lucide-react";
 import Image from "next/image";
 import ThemeSwitcher from "./themeSwitcher";
