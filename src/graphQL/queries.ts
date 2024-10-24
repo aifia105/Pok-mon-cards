@@ -35,6 +35,9 @@ export const GET_POKEMON_DETAILS = gql`
           name
         }
       }
+      pokemon_v2_pokemonsprites {
+        sprites
+      }
       pokemon_v2_pokemonstats {
         base_stat
         pokemon_v2_stat {

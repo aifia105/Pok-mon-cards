@@ -81,12 +81,12 @@ const CardComponent = ({
                 "20"
               );
               return (
-                <div key={index} className="">
+                <div key={index}>
                   <Chip
                     startContent={icon}
                     variant="flat"
                     color="warning"
-                    className="text-md p-2 cursor-default capitalize "
+                    className="text-lg p-2 cursor-default capitalize "
                     size="lg"
                   >
                     {type.pokemon_v2_type.name}

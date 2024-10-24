@@ -69,7 +69,7 @@ const ModalComponent = ({
             </Skeleton>
           </div>
           <div className="mt-6">
-            <div className="flex gap-4 items-center justify-center mt-2 font-medium">
+            <div className="flex gap-4 items-center justify-center text-lg mt-2 font-medium">
               <div className="text-amber-500">Height:</div>
               <div>{`${pokemonData?.height}`}</div>
               <div className="text-amber-500">Weight: </div>
@@ -79,7 +79,10 @@ const ModalComponent = ({
               <div className="text-amber-500">Abilities: </div>
               {pokemonData?.pokemon_v2_pokemonabilities.map(
                 (ability, index) => (
-                  <div key={index}>{`${ability.pokemon_v2_ability.name}`}</div>
+                  <div
+                    key={index}
+                    className="capitalize"
+                  >{`${ability.pokemon_v2_ability.name}`}</div>
                 )
               )}
             </div>

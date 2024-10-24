@@ -74,41 +74,41 @@ export interface GetPokemonVars {
 }
 
 // update
-export interface PokemonStat {
-  stat: {
-    name: string;
-  };
-  base_stat: number;
-}
 
-export interface PokemonEvolutionSpecies {
+interface PokemonSpeciesInEvolutionChain {
+  evolves_from_species_id: number | null;
+  id: number;
   name: string;
-  sprites: {
-    front_default: string;
-  };
+  __typename: "pokemon_v2_pokemonspecies";
 }
 
-export interface PokemonEvolutionChain {
-  evolves_to: {
-    species: PokemonEvolutionSpecies;
-  }[];
+interface PokemonEvolutionChain {
+  pokemon_v2_pokemonspecies: PokemonSpeciesInEvolutionChain[];
+  __typename: "pokemon_v2_evolutionchain";
+}
+
+interface PokemonHabitat {
+  name: string;
+  __typename: "pokemon_v2_pokemonhabitat";
+}
+
+interface PokemonSpecies {
+  capture_rate: number;
+  gender_rate: number;
+  pokemon_v2_evolutionchain: PokemonEvolutionChain;
+  pokemon_v2_pokemonhabitat: PokemonHabitat;
+  __typename: "pokemon_v2_pokemonspecies";
 }
 
 export interface PokemonDetails {
   id: number;
   name: string;
-  types: PokemonType[];
-  sprites: PokemonSprites;
-  stats: PokemonStat[];
+  pokemon_v2_pokemonabilities: PokemonAbility[];
+  pokemon_v2_pokemonsprites: PokemonSpritesWrapper[];
+  pokemon_v2_pokemontypes: PokemonType[];
   height: number;
   weight: number;
-  abilities: PokemonAbility[];
-  gender_rate: number;
-  capture_rate: number;
-  habitat: {
-    name: string;
-  };
-  evolution_chain: PokemonEvolutionChain;
+  pokemon_v2_pokemonspecy: PokemonSpecies;
 }
 
 export interface GetPokemonDetailsData {
