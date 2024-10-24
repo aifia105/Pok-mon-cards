@@ -2,13 +2,16 @@ import { Navbar, NavbarContent, Input } from "@nextui-org/react";
 import { Search } from "lucide-react";
 import Image from "next/image";
 import ThemeSwitcher from "./themeSwitcher";
+import NextLink from "next/link";
 
 const NavBarComponent = () => {
   return (
     <Navbar isBordered>
       <NavbarContent justify="start" className="w-full">
-        <div className="flex items-center">
-          <Image src={"/logo.webp"} alt="" width={200} height={200}></Image>
+        <div className="flex items-center cursor-pointer">
+          <NextLink href="/" passHref legacyBehavior>
+            <Image src={"/logo.webp"} alt="" width={200} height={200}></Image>
+          </NextLink>
         </div>
         <div className="flex-grow flex justify-center">
           <div className="flex items-center justify-center w-full max-w-[500px]">

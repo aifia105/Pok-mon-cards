@@ -26,34 +26,56 @@ import {
   Zap,
 } from "lucide-react";
 
-export const pokemonIcons: { [key: string]: JSX.Element } = {
-  Normal: <Badge className="text-amber-400" />,
-  Fire: <Flame className="text-amber-400" />,
-  Water: <Waves className="text-amber-400" />,
-  Grass: <Leaf className="text-amber-400" />,
-  Electric: <Zap className="text-amber-400" />,
-  Ice: <Snowflake className="text-amber-400" />,
-  Fighting: <BicepsFlexed className="text-amber-400" />,
-  Poison: <Biohazard className="text-amber-400" />,
-  Ground: <Earth className="text-amber-400" />,
-  Flying: <Rocket className="text-amber-400" />,
-  Psychic: <BrainCircuit className="text-amber-400" />,
-  Bug: <Bug className="text-amber-400" />,
-  Rock: <Mountain className="text-amber-400" />,
-  Ghost: <Ghost className="text-amber-400" />,
-  Dragon: <Origami className="text-amber-400" />,
-  Dark: <Eclipse className="text-amber-400" />,
-  Steel: <ShieldPlus className="text-amber-400" />,
-  Fairy: <WandSparkles className="text-amber-400" />,
-  all: <AlignLeft className="text-amber-400" />,
+export const pokemonIcons: {
+  [key: string]: (color: string, size: string) => JSX.Element;
+} = {
+  Normal: (color, size) => <Badge className={`text-${color}`} size={size} />,
+  Fire: (color, size) => <Flame className={`text-${color}`} size={size} />,
+  Water: (color, size) => <Waves className={`text-${color}`} size={size} />,
+  Grass: (color, size) => <Leaf className={`text-${color}`} size={size} />,
+  Electric: (color, size) => <Zap className={`text-${color}`} size={size} />,
+  Ice: (color, size) => <Snowflake className={`text-${color}`} size={size} />,
+  Fighting: (color, size) => (
+    <BicepsFlexed className={`text-${color}`} size={size} />
+  ),
+  Poison: (color, size) => (
+    <Biohazard className={`text-${color}`} size={size} />
+  ),
+  Ground: (color, size) => <Earth className={`text-${color}`} size={size} />,
+  Flying: (color, size) => <Rocket className={`text-${color}`} size={size} />,
+  Psychic: (color, size) => (
+    <BrainCircuit className={`text-${color}`} size={size} />
+  ),
+  Bug: (color, size) => <Bug className={`text-${color}`} size={size} />,
+  Rock: (color, size) => <Mountain className={`text-${color}`} size={size} />,
+  Ghost: (color, size) => <Ghost className={`text-${color}`} size={size} />,
+  Dragon: (color, size) => <Origami className={`text-${color}`} size={size} />,
+  Dark: (color, size) => <Eclipse className={`text-${color}`} size={size} />,
+  Steel: (color, size) => (
+    <ShieldPlus className={`text-${color}`} size={size} />
+  ),
+  Fairy: (color, size) => (
+    <WandSparkles className={`text-${color}`} size={size} />
+  ),
+  all: (color, size) => <AlignLeft className={`text-${color}`} size={size} />,
 };
 
-export const pokemonStatIcons: { [key: string]: JSX.Element } = {
-  Hp: <Heart className="text-amber-400" />,
-  Attack: <BicepsFlexed className="text-amber-400" />,
-  Defense: <Shield className="text-amber-400" />,
-  Special_Attack: <Skull className="text-amber-400" />,
-  Special_Defense: <ShieldCheck className="text-amber-400" />,
-  Speed: <Rabbit className="text-amber-400" />,
-  number: <ListOrdered className="text-amber-400" />,
+export const pokemonStatIcons: {
+  [key: string]: (color: string, size: string) => JSX.Element;
+} = {
+  Hp: (color, size) => <Heart className={`text-${color}`} size={size} />,
+  Attack: (color, size) => (
+    <BicepsFlexed className={`text-${color}`} size={size} />
+  ),
+  Defense: (color, size) => <Shield className={`text-${color}`} size={size} />,
+  Special_Attack: (color, size) => (
+    <Skull className={`text-${color}`} size={size} />
+  ),
+  Special_Defense: (color, size) => (
+    <ShieldCheck className={`text-${color}`} size={size} />
+  ),
+  Speed: (color, size) => <Rabbit className={`text-${color}`} size={size} />,
+  number: (color, size) => (
+    <ListOrdered className={`text-${color}`} size={size} />
+  ),
 };

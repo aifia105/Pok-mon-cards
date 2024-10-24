@@ -1,12 +1,15 @@
 import { CircularProgress } from "@nextui-org/react";
+import React from "react";
 
-export default function Loading() {
+const LoadingComponent = () => {
   return (
-    <div className="w-full min-h-screen flex justify-center items-center">
+    <div className="fixed inset-0 flex justify-center items-center bg-background">
       <div className="flex flex-col items-center gap-2">
         <CircularProgress color="warning" aria-label="Loading..." />
         <p className="text-sm text-gray-500">Loading...</p>
       </div>
     </div>
   );
-}
+};
+
+export default LoadingComponent;

@@ -11,6 +11,7 @@ import {
   Skeleton,
 } from "@nextui-org/react";
 import { ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 import React, { Dispatch, SetStateAction, useState } from "react";
 
 const ModalComponent = ({
@@ -23,8 +24,17 @@ const ModalComponent = ({
   pokemonData: Pokemon | null;
 }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const route = useRouter();
+
   const handleImageLoad = () => {
     setIsLoading(true);
+  };
+
+  const handleViewDetails = () => {
+    setIsOpen(false);
+    if (pokemonData) {
+      route.push(`/pokemon/${pokemonData.id}`);
+    }
   };
 
   return (
@@ -36,9 +46,10 @@ const ModalComponent = ({
     >
       <ModalContent>
         <ModalHeader className="gap-1 text-2xl text-center font-bold flex justify-center mt-2 space-x-1">
-          <p className="text-gray-600 dark:text-white/60">{pokemonData?.id}</p>
-          <p>-</p>
-          <p className="text-amber-400 dark:text-white">{pokemonData?.name}</p>
+          <p className="text-gray-600 dark:text-white/60">{`${pokemonData?.id}.`}</p>
+          <p className="text-amber-500 dark:text-white capitalize">
+            {pokemonData?.name}
+          </p>
         </ModalHeader>
         <ModalBody>
           <div className="relative w-full h-full flex justify-center items-center group mt-4">
@@ -48,26 +59,29 @@ const ModalComponent = ({
             <Skeleton isLoaded={isLoading} className="rounded-full">
               <Image
                 alt="Card background"
-                className="z-0 w-[250px] h-[250px] object-contain relative"
-                src={pokemonData?.sprites.front_default}
+                className="z-0 w-[200px] h-[200px] object-contain relative"
+                src={
+                  pokemonData?.pokemon_v2_pokemonsprites[0].sprites.other
+                    .showdown.front_default
+                }
                 onLoad={handleImageLoad}
               />
             </Skeleton>
           </div>
-          <div>
-            <div>
-              <div className="flex items-center justify-center text-lg font-medium space-x-4 mr-5">
-                <div className="text-amber-400">Abilities: </div>
-                {pokemonData?.abilities.map((ability, index) => (
-                  <div key={index}>{`${ability.ability.name}`}</div>
-                ))}
-              </div>
-              <div className="flex gap-4 items-center justify-center mt-2 font-medium">
-                <div className="text-amber-400">Height:</div>
-                <div>{`${pokemonData?.height}`}</div>
-                <div className="text-amber-400">Weight: </div>
-                <div>{`${pokemonData?.weight}`}</div>
-              </div>
+          <div className="mt-6">
+            <div className="flex gap-4 items-center justify-center mt-2 font-medium">
+              <div className="text-amber-500">Height:</div>
+              <div>{`${pokemonData?.height}`}</div>
+              <div className="text-amber-500">Weight: </div>
+              <div>{`${pokemonData?.weight}`}</div>
+            </div>
+            <div className="flex items-center justify-center text-lg font-medium space-x-4 ">
+              <div className="text-amber-500">Abilities: </div>
+              {pokemonData?.pokemon_v2_pokemonabilities.map(
+                (ability, index) => (
+                  <div key={index}>{`${ability.pokemon_v2_ability.name}`}</div>
+                )
+              )}
             </div>
           </div>
         </ModalBody>
@@ -76,7 +90,7 @@ const ModalComponent = ({
             className="w-full flex items-center justify-center"
             color="warning"
             variant="bordered"
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={handleViewDetails}
           >
             <p className="text-md font-medium mb-1">View Details</p>
             <ArrowRight />

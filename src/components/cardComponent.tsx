@@ -10,7 +10,7 @@ import {
 } from "@nextui-org/react";
 import ModalComponent from "./modalComponent";
 import { Pokemon } from "@/types/types";
-import { FireExtinguisher } from "lucide-react";
+import { pokemonIconsGetter } from "@/types/operations";
 
 const CardComponent = ({
   pokemon,
@@ -49,9 +49,9 @@ const CardComponent = ({
           <CardHeader className="items-center absolute z-10 top-1 flex-col">
             <div className="flex items-center justify-center space-x-2">
               <p className="text-xl text-gray-600 dark:text-white/60 uppercase font-bold">
-                {`${pokemon.id} -`}
+                {`${pokemon.id}.`}
               </p>
-              <h4 className="text-amber-400 dark:text-white font-bold text-xl">
+              <h4 className="text-amber-500 dark:text-white font-bold text-xl capitalize">
                 {pokemon.name}
               </h4>
             </div>
@@ -63,26 +63,37 @@ const CardComponent = ({
             <Skeleton isLoaded={isLoading} className="rounded-full">
               <Image
                 alt="Card background"
-                className="z-0 w-[250px] h-[250px] object-contain relative"
-                src={pokemon.sprites.front_default}
+                className="z-0 w-[200px] h-[200px] object-contain relative"
+                src={
+                  pokemon.pokemon_v2_pokemonsprites[0].sprites.other[
+                    "official-artwork"
+                  ].front_default
+                }
                 onLoad={handleImageLoad}
               />
             </Skeleton>
           </div>
           <CardFooter className="flex justify-center flex-col md:flex-row gap-2">
-            {pokemon.types.map((type, index) => (
-              <div key={index} className="">
-                <Chip
-                  startContent={<FireExtinguisher size={20} />}
-                  variant="flat"
-                  color="warning"
-                  className="text-md p-2 cursor-default capitalize "
-                  size="lg"
-                >
-                  {type.type.name}
-                </Chip>
-              </div>
-            ))}
+            {pokemon.pokemon_v2_pokemontypes.map((type, index) => {
+              const icon = pokemonIconsGetter(
+                type.pokemon_v2_type.name,
+                "amber-500",
+                "20"
+              );
+              return (
+                <div key={index} className="">
+                  <Chip
+                    startContent={icon}
+                    variant="flat"
+                    color="warning"
+                    className="text-md p-2 cursor-default capitalize "
+                    size="lg"
+                  >
+                    {type.pokemon_v2_type.name}
+                  </Chip>
+                </div>
+              );
+            })}
           </CardFooter>
         </Card>
       </div>

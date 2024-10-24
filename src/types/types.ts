@@ -1,44 +1,79 @@
 import { pokemonIcons, pokemonStatIcons } from "./icons";
 
-export interface PokemonType {
-  type: {
-    name: string;
+export interface PokemonSpritesOther {
+  dream_world: {
+    front_female: string | null;
+    front_default: string;
+  };
+  home: {
+    front_shiny: string;
+    front_female: string | null;
+    front_default: string;
+    front_shiny_female: string | null;
+  };
+  "official-artwork": {
+    front_shiny: string;
+    front_default: string;
+  };
+  showdown: {
+    back_shiny: string;
+    back_female: string | null;
+    front_shiny: string;
+    back_default: string;
+    front_female: string | null;
+    front_default: string;
   };
 }
 
 export interface PokemonSprites {
+  back_default: string;
+  back_female: string | null;
+  back_shiny: string;
+  back_shiny_female: string | null;
   front_default: string;
+  front_female: string | null;
+  front_shiny: string;
+  front_shiny_female: string | null;
+  other: PokemonSpritesOther;
+  versions: Record<string, unknown>; // You can expand this if needed
 }
 
 export interface PokemonAbility {
-  ability: {
+  pokemon_v2_ability: {
     name: string;
   };
 }
 
+export interface PokemonType {
+  pokemon_v2_type: {
+    name: string;
+  };
+}
+
+export interface PokemonSpritesWrapper {
+  sprites: PokemonSprites;
+}
+
 export interface Pokemon {
+  height: number;
   id: number;
   name: string;
-  types: PokemonType[];
-  sprites: PokemonSprites;
-  color: PokemonColor;
-  height: number;
+  order: number;
+  pokemon_v2_pokemonabilities: PokemonAbility[];
+  pokemon_v2_pokemonsprites: PokemonSpritesWrapper[];
+  pokemon_v2_pokemontypes: PokemonType[];
   weight: number;
-  abilities: PokemonAbility[];
 }
 
-export interface PokemonColor {
-  name: string;
-}
-
-export interface GetPokemonData {
-  pokemon: Pokemon[];
+export interface PokemonData {
+  pokemon_v2_pokemon: Pokemon[];
 }
 
 export interface GetPokemonVars {
   limit: number;
 }
 
+// update
 export interface PokemonStat {
   stat: {
     name: string;
@@ -65,7 +100,6 @@ export interface PokemonDetails {
   types: PokemonType[];
   sprites: PokemonSprites;
   stats: PokemonStat[];
-  color: PokemonColor;
   height: number;
   weight: number;
   abilities: PokemonAbility[];

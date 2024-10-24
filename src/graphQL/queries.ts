@@ -1,25 +1,23 @@
 import { gql } from "@apollo/client";
 
 export const GET_POKEMON = gql`
-  query GetPokemon($limit: Int!) {
-    pokemon(limit: $limit) {
+  query getPokemons($limit: Int!) {
+    pokemon_v2_pokemon(limit: $limit) {
       id
       name
-      types {
-        type {
+      order
+      pokemon_v2_pokemonsprites {
+        sprites
+      }
+      pokemon_v2_pokemontypes {
+        pokemon_v2_type {
           name
         }
       }
-      sprites {
-        front_default
-      }
-      color {
-        name
-      }
       height
       weight
-      abilities {
-        ability {
+      pokemon_v2_pokemonabilities {
+        pokemon_v2_ability {
           name
         }
       }
@@ -28,46 +26,39 @@ export const GET_POKEMON = gql`
 `;
 
 export const GET_POKEMON_DETAILS = gql`
-  query GetPokemonDetails($id: Int!) {
-    pokemon_details(id: $id) {
+  query getPokemonDetails($id: Int!) {
+    pokemon_v2_pokemon_by_pk(id: $id) {
       id
       name
-      types {
-        type {
+      pokemon_v2_pokemontypes {
+        pokemon_v2_type {
           name
         }
       }
-      sprites {
-        front_default
-      }
-      stats {
-        stat {
-          name
-        }
+      pokemon_v2_pokemonstats {
         base_stat
-      }
-      color {
-        name
+        pokemon_v2_stat {
+          name
+        }
       }
       height
       weight
-      abilities {
-        ability {
+      pokemon_v2_pokemonabilities {
+        pokemon_v2_ability {
           name
         }
       }
-      gender_rate
-      capture_rate
-      habitat {
-        name
-      }
-      evolution_chain {
-        evolves_to {
-          species {
+      pokemon_v2_pokemonspecy {
+        gender_rate
+        capture_rate
+        pokemon_v2_pokemonhabitat {
+          name
+        }
+        pokemon_v2_evolutionchain {
+          pokemon_v2_pokemonspecies {
             name
-            sprites {
-              front_default
-            }
+            id
+            evolves_from_species_id
           }
         }
       }

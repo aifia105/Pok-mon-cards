@@ -1,4 +1,5 @@
 "use client";
+import { pokemonIconsGetter, pokemonStatGetter } from "@/types/operations";
 import {
   Button,
   Dropdown,
@@ -12,7 +13,7 @@ import React from "react";
 
 type dropDownListType = {
   type: string;
-  icon: JSX.Element;
+  icon: (color: string, size: string) => JSX.Element;
 }[];
 
 const DropDown = ({
@@ -53,15 +54,21 @@ const DropDown = ({
         selectedKeys={selectedKeys}
         onSelectionChange={handleSelectionChange}
       >
-        {dropDownList.map((item) => (
-          <DropdownItem
-            className="p-2 font-medium"
-            key={item.type}
-            startContent={item.icon}
-          >
-            {item.type}
-          </DropdownItem>
-        ))}
+        {dropDownList.map((item) => {
+          const icons =
+            name === "Filter"
+              ? pokemonIconsGetter(item.type, "amber-500", "20")
+              : pokemonStatGetter(item.type, "amber-500", "20");
+          return (
+            <DropdownItem
+              className="p-2 font-medium"
+              key={item.type}
+              startContent={icons}
+            >
+              {item.type}
+            </DropdownItem>
+          );
+        })}
       </DropdownMenu>
     </Dropdown>
   );
