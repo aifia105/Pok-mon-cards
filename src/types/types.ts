@@ -100,6 +100,15 @@ interface PokemonSpecies {
   __typename: "pokemon_v2_pokemonspecies";
 }
 
+export interface PokemonStat {
+  base_stat: number;
+  pokemon_v2_stat: {
+    name: string;
+    __typename: "pokemon_v2_stat";
+  };
+  __typename: "pokemon_v2_pokemonstat";
+}
+
 export interface PokemonDetails {
   id: number;
   name: string;
@@ -109,6 +118,7 @@ export interface PokemonDetails {
   height: number;
   weight: number;
   pokemon_v2_pokemonspecy: PokemonSpecies;
+  pokemon_v2_pokemonstats: PokemonStat[];
 }
 
 export interface GetPokemonDetailsData {
