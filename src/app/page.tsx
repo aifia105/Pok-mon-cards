@@ -56,7 +56,7 @@ const Home = () => {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-2">
           {!loading &&
-            data.pokemon_v2_pokemon.map((pokemon: Pokemon, index: number) => (
+            data.pokemon_v2_pokemon.map((pokemon: Pokemon) => (
               <CardComponent
                 key={pokemon.id}
                 pokemon={pokemon}

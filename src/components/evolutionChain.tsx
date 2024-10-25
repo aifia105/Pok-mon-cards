@@ -1,8 +1,5 @@
 "use client";
-import {
-  PokemonEvolutionChain,
-  PokemonSpeciesInEvolutionChain,
-} from "@/types/types";
+import { PokemonEvolutionChain } from "@/types/types";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import React, { useState } from "react";
