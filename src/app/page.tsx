@@ -1,6 +1,6 @@
 "use client";
 import CardComponent from "@/components/cardComponent";
-import DropDown from "@/components/DropDown";
+import DropDown from "@/components/dropDown";
 import PaginationComponent from "@/components/pagination";
 import { GET_POKEMON } from "@/graphQL/queries";
 import { Pokemon, pokemonStatTypes, pokemonTypes } from "@/types/types";

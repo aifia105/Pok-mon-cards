@@ -69,14 +69,14 @@ const ModalComponent = ({
             </Skeleton>
           </div>
           <div className="mt-6">
-            <div className="flex gap-4 items-center justify-center text-lg mt-2 font-medium">
-              <div className="text-amber-500">Height:</div>
+            <div className="flex gap-4 items-center justify-center text-lg mt-2 ">
+              <div className="text-amber-500 font-medium">Height:</div>
               <div>{`${pokemonData?.height}`}</div>
-              <div className="text-amber-500">Weight: </div>
+              <div className="text-amber-500 font-medium">Weight: </div>
               <div>{`${pokemonData?.weight}`}</div>
             </div>
-            <div className="flex items-center justify-center text-lg font-medium space-x-4 ">
-              <div className="text-amber-500">Abilities: </div>
+            <div className="flex items-center justify-center text-lg space-x-4 ">
+              <div className="text-amber-500 font-medium">Abilities: </div>
               {pokemonData?.pokemon_v2_pokemonabilities.map(
                 (ability, index) => (
                   <div

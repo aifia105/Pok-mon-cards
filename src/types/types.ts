@@ -75,14 +75,14 @@ export interface GetPokemonVars {
 
 // update
 
-interface PokemonSpeciesInEvolutionChain {
+export interface PokemonSpeciesInEvolutionChain {
   evolves_from_species_id: number | null;
   id: number;
   name: string;
   __typename: "pokemon_v2_pokemonspecies";
 }
 
-interface PokemonEvolutionChain {
+export interface PokemonEvolutionChain {
   pokemon_v2_pokemonspecies: PokemonSpeciesInEvolutionChain[];
   __typename: "pokemon_v2_evolutionchain";
 }

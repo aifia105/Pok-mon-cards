@@ -27,7 +27,7 @@ const PokemonCardComponent = ({ pokemon }: { pokemon: PokemonDetails }) => {
       <div className="flex-1 flex items-center justify-center">
         <div className="relative flex justify-center items-center group">
           <div
-            className={`animate-pulse absolute w-[300px] h-[300px] rounded-full bg-gray-100 dark:bg-gray-800 transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(251,191,36,0.5)]`}
+            className={`absolute w-[300px] h-[300px] rounded-full bg-gray-100 dark:bg-gray-800 transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(251,191,36,0.5)]`}
           ></div>
           <Skeleton isLoaded={isLoading} className="rounded-full">
             <Image

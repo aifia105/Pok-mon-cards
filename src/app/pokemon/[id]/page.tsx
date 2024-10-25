@@ -9,6 +9,9 @@ import ErrorComponent from "@/components/errorComponent";
 import PokemonDetailsComponent from "@/components/pokemonDetails";
 import PokemonCardComponent from "@/components/pokemonCard";
 import { PokemonStat } from "@/types/types";
+import StatComponent from "@/components/statComponent";
+import EvolutionChain from "@/components/evolutionChain";
+import Chart from "@/components/chart";
 
 type Props = {
   params: {
@@ -30,16 +33,13 @@ const Pokemon = ({ params }: Props) => {
 
   const pokemon = data.pokemon_v2_pokemon_by_pk;
   const evolutionChain =
-    pokemon.pokemon_v2_pokemonspecy.pokemon_v2_evolutionchain
-      .pokemon_v2_pokemonspecies;
-  console.log(evolutionChain);
+    pokemon.pokemon_v2_pokemonspecy.pokemon_v2_evolutionchain;
 
   const pokemonStat = pokemon.pokemon_v2_pokemonstats.map(
     (stat: PokemonStat) => {
       return { name: stat.pokemon_v2_stat.name, base_stat: stat.base_stat };
     }
   );
-  console.log(pokemonStat);
 
   return (
     <div className="xl:h-full pt-10 pb-12 xl:pb-20 xl:pt-13">
@@ -51,7 +51,7 @@ const Pokemon = ({ params }: Props) => {
           </div>
         </NextLink>
         {/* Main content container */}
-        <div className="mt-10 flex flex-row items-start gap-7">
+        <div className="mt-10 flex flex-row items-start gap-4">
           {/* First div  */}
           <PokemonCardComponent pokemon={pokemon} />
           {/* Second div  */}
@@ -59,15 +59,15 @@ const Pokemon = ({ params }: Props) => {
           {/* end of second div */}
         </div>
         <div className="grid grid-cols-2 gap-4  mt-10">
-          <div className="h-[550px] w-full bg-[#E5E7EB] shadow-md rounded-lg dark:bg-[#18181B]">
-            1
+          <div className="h-[550px] w-full bg-[#E5E7EB] shadow-md rounded-lg dark:bg-[#18181B] flex items-center justify-center ">
+            <StatComponent pokemon={pokemon} />
           </div>
-          <div className="h-[550px] w-full bg-[#E5E7EB] shadow-md rounded-lg dark:bg-[#18181B]">
-            2{" "}
+          <div className="h-[550px] w-full bg-[#E5E7EB] shadow-md rounded-lg dark:bg-[#18181B] flex items-center justify-center">
+            <Chart stats={pokemonStat} />
           </div>
         </div>
         <div className="h-[350px] w-full bg-[#E5E7EB] shadow-md rounded-lg dark:bg-[#18181B] mt-10">
-          1
+          <EvolutionChain evolutionChain={evolutionChain} />
         </div>
       </div>
     </div>
