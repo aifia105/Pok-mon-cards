@@ -51,7 +51,7 @@ const Pokemon = ({ params }: Props) => {
           </div>
         </NextLink>
         {/* Main content container */}
-        <div className="mt-10 flex flex-row items-start gap-4">
+        <div className="mt-10 grid grid-cols-2 gap-4">
           {/* First div  */}
           <PokemonCardComponent pokemon={pokemon} />
           {/* Second div  */}

@@ -34,6 +34,7 @@ const CardComponent = ({
   const handlePokemonData = (pokemon: Pokemon) => {
     setPokemonData(pokemon);
   };
+  console.log(pokemon);
 
   return (
     <>

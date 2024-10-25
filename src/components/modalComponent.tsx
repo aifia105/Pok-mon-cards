@@ -37,6 +37,12 @@ const ModalComponent = ({
     }
   };
 
+  const formatAbilityName = (name: string) => {
+    return name.replace("-", " ");
+  };
+
+  console.log(pokemonData);
+
   return (
     <Modal
       isOpen={isOpen}
@@ -54,15 +60,16 @@ const ModalComponent = ({
         <ModalBody>
           <div className="relative w-full h-full flex justify-center items-center group mt-4">
             <div
-              className={`animate-pulse absolute w-[250px] h-[250px] rounded-full bg-gray-100 dark:bg-gray-800 transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(251,191,36,0.5)]`}
+              className={`absolute w-[250px] h-[250px] rounded-full bg-transparent transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(251,191,36,0.5)]`}
             ></div>
             <Skeleton isLoaded={isLoading} className="rounded-full">
               <Image
                 alt="Card background"
-                className="z-0 w-[200px] h-[200px] object-contain relative"
+                className="z-0 w-[180px] h-[180px] object-contain relative"
                 src={
-                  pokemonData?.pokemon_v2_pokemonsprites[0].sprites.other
-                    .showdown.front_default
+                  pokemonData?.pokemon_v2_pokemonsprites[0].sprites.other[
+                    "official-artwork"
+                  ].front_default
                 }
                 onLoad={handleImageLoad}
               />
@@ -79,10 +86,9 @@ const ModalComponent = ({
               <div className="text-amber-500 font-medium">Abilities: </div>
               {pokemonData?.pokemon_v2_pokemonabilities.map(
                 (ability, index) => (
-                  <div
-                    key={index}
-                    className="capitalize"
-                  >{`${ability.pokemon_v2_ability.name}`}</div>
+                  <div key={index} className="capitalize">
+                    {formatAbilityName(ability.pokemon_v2_ability.name)}
+                  </div>
                 )
               )}
             </div>

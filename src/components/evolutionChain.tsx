@@ -1,9 +1,13 @@
 "use client";
-import { PokemonEvolutionChain } from "@/types/types";
+import {
+  PokemonEvolutionChain,
+  PokemonSpeciesInEvolutionChain,
+} from "@/types/types";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import React, { useState } from "react";
 import { Image, Skeleton } from "@nextui-org/react";
+import { useRouter } from "next/navigation";
 
 const EvolutionChain = ({
   evolutionChain,
@@ -11,8 +15,16 @@ const EvolutionChain = ({
   evolutionChain: PokemonEvolutionChain;
 }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const route = useRouter();
+
   const handleImageLoad = () => {
     setIsLoading(true);
+  };
+
+  const handleViewDetails = (id: number) => {
+    if (id) {
+      route.push(`/pokemon/${id}`);
+    }
   };
 
   return (
@@ -26,7 +38,10 @@ const EvolutionChain = ({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
             >
-              <div className="relative flex justify-center items-center group">
+              <div
+                className="relative flex justify-center items-center group cursor-pointer"
+                onClick={() => handleViewDetails(pokemon.id)}
+              >
                 <div
                   className={`absolute w-52 h-52 rounded-full bg-gray-100 dark:bg-gray-800 transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(251,191,36,0.5)]`}
                 ></div>

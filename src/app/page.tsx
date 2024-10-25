@@ -7,19 +7,36 @@ import { Pokemon, pokemonStatTypes, pokemonTypes } from "@/types/types";
 import { useQuery } from "@apollo/client";
 import ErrorComponent from "@/components/errorComponent";
 import LoadingComponent from "@/components/loadingComponent";
+import { useState } from "react";
 
 const Home = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 16;
+
   const { loading, error, data, refetch } = useQuery(GET_POKEMON, {
-    variables: { limit: 16 },
+    variables: {
+      limit: itemsPerPage,
+      offset: (currentPage - 1) * itemsPerPage,
+    },
     notifyOnNetworkStatusChange: true,
     //configure cache behavior
     fetchPolicy: "cache-and-network",
   });
 
-  if (loading && !data) return <LoadingComponent />;
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  console.log(error);
+
+  if (loading) return <LoadingComponent />;
   if (error) {
     return <ErrorComponent refetch={refetch} />;
   }
+
+  const totalPokemon = 1008;
+  const totalPages = Math.ceil(totalPokemon / itemsPerPage);
 
   return (
     <section className="xl:h-full pt-10 pb-12 xl:pb-20 xl:pt-15">
@@ -38,11 +55,22 @@ const Home = () => {
           <DropDown name="Sort" dropDownList={pokemonStatTypes}></DropDown>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-2">
-          {data.pokemon_v2_pokemon.map((pokemon: Pokemon, index: number) => (
-            <CardComponent key={index} pokemon={pokemon} index={index} />
-          ))}
+          {!loading &&
+            data.pokemon_v2_pokemon.map((pokemon: Pokemon, index: number) => (
+              <CardComponent
+                key={pokemon.id}
+                pokemon={pokemon}
+                index={pokemon.id}
+              />
+            ))}
         </div>
-        <PaginationComponent></PaginationComponent>
+        {!loading && (
+          <PaginationComponent
+            currentPage={currentPage}
+            onPageChange={handlePageChange}
+            total={totalPages}
+          />
+        )}
       </div>
     </section>
   );
