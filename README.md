@@ -20,8 +20,8 @@ A web application that allows users to explore and search Pokémon with their de
  - Support for all Pokémon types (Fire, Water, Grass, etc.)
 
  ### **Smart Sorting**
- - Sort by name (A-Z, Z-A)
- - Sort by any stat value
+ - Sort by name 
+ - Sort by stat 
 
 
  ### **Pagination**
