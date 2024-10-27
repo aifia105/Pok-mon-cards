@@ -12,7 +12,7 @@ A web application that allows users to explore and search Pokémon with their de
  - Clean and intuitive interface
 
  ### **Advanced Search**
- - Search by Pokémon name
+ - Search by Pokémon name or number
  - Filter by stat (e.g., HP, Attack)
 
  ### **Type Filtering**
