@@ -14,6 +14,12 @@ export const GET_POKEMON = gql`
           name
         }
       }
+      pokemon_v2_pokemonstats {
+        base_stat
+        pokemon_v2_stat {
+          name
+        }
+      }
       height
       weight
       pokemon_v2_pokemonabilities {

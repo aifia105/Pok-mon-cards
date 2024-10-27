@@ -40,7 +40,7 @@ const EvolutionChain = ({
                 onClick={() => handleViewDetails(pokemon.id)}
               >
                 <div
-                  className={`absolute w-52 h-52 rounded-full bg-gray-100 dark:bg-gray-800 transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(251,191,36,0.5)]`}
+                  className={`animate-pulse absolute w-52 h-52 rounded-full bg-gray-100 dark:bg-gray-800 transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(251,191,36,0.5)]`}
                 ></div>
                 <Skeleton isLoaded={isLoading} className="rounded-full">
                   <Image

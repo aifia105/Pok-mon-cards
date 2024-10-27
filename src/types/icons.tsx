@@ -1,5 +1,5 @@
 import {
-  AlignLeft,
+  ArrowDownWideNarrow,
   Badge,
   BicepsFlexed,
   Biohazard,
@@ -7,11 +7,11 @@ import {
   Bug,
   Earth,
   Eclipse,
+  Filter,
   Flame,
   Ghost,
   Heart,
   Leaf,
-  ListOrdered,
   Mountain,
   Origami,
   Rabbit,
@@ -57,7 +57,7 @@ export const pokemonIcons: {
   Fairy: (color, size) => (
     <WandSparkles className={`text-${color}`} size={size} />
   ),
-  all: (color, size) => <AlignLeft className={`text-${color}`} size={size} />,
+  filter: (color, size) => <Filter className={`text-${color}`} size={size} />,
 };
 
 export const pokemonStatIcons: {
@@ -75,7 +75,7 @@ export const pokemonStatIcons: {
     <ShieldCheck className={`text-${color}`} size={size} />
   ),
   Speed: (color, size) => <Rabbit className={`text-${color}`} size={size} />,
-  number: (color, size) => (
-    <ListOrdered className={`text-${color}`} size={size} />
+  arrowDownWideNarrow: (color, size) => (
+    <ArrowDownWideNarrow className={`text-${color}`} size={size} />
   ),
 };

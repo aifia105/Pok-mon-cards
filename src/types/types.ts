@@ -62,6 +62,7 @@ export interface Pokemon {
   pokemon_v2_pokemonabilities: PokemonAbility[];
   pokemon_v2_pokemonsprites: PokemonSpritesWrapper[];
   pokemon_v2_pokemontypes: PokemonType[];
+  pokemon_v2_pokemonstats: PokemonStat[];
   weight: number;
 }
 
@@ -131,7 +132,7 @@ export interface GetPokemonDetailsVars {
 
 // pokemon types
 export const pokemonTypes = [
-  { type: "All", icon: pokemonIcons.all },
+  { type: "All", icon: pokemonIcons.filter },
   { type: "Normal", icon: pokemonIcons.Normal },
   { type: "Fire", icon: pokemonIcons.Fire },
   { type: "Water", icon: pokemonIcons.Water },
@@ -154,7 +155,7 @@ export const pokemonTypes = [
 
 // pokemon stats types
 export const pokemonStatTypes = [
-  { type: "Number", icon: pokemonStatIcons.number },
+  { type: "Number", icon: pokemonStatIcons.arrowDownWideNarrow },
   { type: "HP", icon: pokemonStatIcons.Hp },
   { type: "Attack", icon: pokemonStatIcons.Attack },
   { type: "Defense", icon: pokemonStatIcons.Defense },

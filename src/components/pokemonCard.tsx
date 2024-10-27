@@ -27,7 +27,7 @@ const PokemonCardComponent = ({ pokemon }: { pokemon: PokemonDetails }) => {
       <div className="flex-1 flex items-center justify-center">
         <div className="relative flex justify-center items-center group">
           <div
-            className={`absolute w-[310px] h-[310px] rounded-full bg-gray-100 dark:bg-gray-800 transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(251,191,36,0.5)]`}
+            className={`absolute w-[310px] h-[310px] rounded-full bg-transparent transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(251,191,36,0.5)]`}
           ></div>
           <Skeleton isLoaded={isLoading} className="rounded-full">
             <Image
@@ -43,7 +43,7 @@ const PokemonCardComponent = ({ pokemon }: { pokemon: PokemonDetails }) => {
           </Skeleton>
         </div>
       </div>
-      <div className="flex justify-center flex-col md:flex-row gap-7 mb-4">
+      <div className="flex justify-center flex-col md:flex-row gap-7 mb-6">
         {pokemon.pokemon_v2_pokemontypes.map(
           (type: PokemonType, index: number) => {
             const icon = pokemonIconsGetter(

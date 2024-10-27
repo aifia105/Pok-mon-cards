@@ -41,8 +41,6 @@ const ModalComponent = ({
     return name.replace("-", " ");
   };
 
-  console.log(pokemonData);
-
   return (
     <Modal
       isOpen={isOpen}

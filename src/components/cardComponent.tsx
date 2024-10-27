@@ -34,7 +34,6 @@ const CardComponent = ({
   const handlePokemonData = (pokemon: Pokemon) => {
     setPokemonData(pokemon);
   };
-  console.log(pokemon);
 
   return (
     <>
@@ -59,7 +58,7 @@ const CardComponent = ({
           </CardHeader>
           <div className="relative w-full h-full flex justify-center items-center group mt-4">
             <div
-              className={`animate-pulse absolute w-[250px] h-[250px] rounded-full bg-gray-100 dark:bg-gray-800 transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(251,191,36,0.5)]`}
+              className={`animate-pulse absolute w-[250px] h-[250px] rounded-full bg-transparent transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(251,191,36,0.5)]`}
             ></div>
             <Skeleton isLoaded={isLoading} className="rounded-full">
               <Image

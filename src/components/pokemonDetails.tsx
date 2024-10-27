@@ -9,8 +9,8 @@ const PokemonDetailsComponent = ({ pokemon }: { pokemon: PokemonDetails }) => {
 
   console.log(pokemon);
   return (
-    <div className="w-full h-[450px] bg-[#E5E7EB] shadow-md rounded-lg dark:bg-[#18181B] p-6">
-      <div className="grid grid-cols-2 grid-rows-3 gap-8 text-lg mt-3">
+    <div className="w-full h-[225px] bg-transparent  p-6">
+      <div className="grid grid-cols-2 grid-rows-3 gap-y-10 text-lg mt-3">
         {/* Row 1 */}
         <div className="flex items-center gap-4">
           <div className="text-amber-500 font-medium">Height:</div>
