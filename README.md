@@ -42,7 +42,7 @@ npm >= 6.14.0
 ### Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/pokemon-stats-explorer.git
+git clone https://github.com/aifia105/pokemon-stats-explorer.git
 ```
 ### Install dependencies:
 ```bash
